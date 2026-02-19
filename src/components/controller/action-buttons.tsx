@@ -13,10 +13,10 @@ export default function DPadButtons() {
     <>
       <div className="dpad-container">
         <div className="dpad">
-          <button className="up" onClick={() => handlePress("up")}>↑</button>
-          <button className="left" onClick={() => handlePress("left")}>←</button>
-          <button className="right" onClick={() => handlePress("left")}>→</button>
-          <button className="down" onClick={() => handlePress("left")}>↓</button>
+          <button className="up" onClick={() => handlePress("up")}>A</button>
+          <button className="left" onClick={() => handlePress("left")}>B</button>
+          <button className="right" onClick={() => handlePress("left")}>X</button>
+          <button className="down" onClick={() => handlePress("left")}>Y</button>
         </div>
       </div>
     </>
