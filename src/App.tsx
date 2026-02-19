@@ -1,6 +1,6 @@
 import { useState } from "react"
 import ControllerLayoutComponent from "./components/controller/controller-layout";
-
+import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
