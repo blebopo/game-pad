@@ -1,0 +1,24 @@
+.controller-layout-component {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 400px; 
+  margin: 0 auto; 
+  padding: 20px;
+  background-color: #1e1e2f; 
+  border-radius: 12px;
+  gap: 50px;
+}
+
+.controller-dpad-buttons-container,
+.controller-action-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controller-dpad-buttons-actions{
+
+}
+
+

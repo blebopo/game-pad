@@ -1,5 +1,5 @@
 import ActionButtons from "./action-buttons";
-import DPadButtons from "./dpad-buttons";
+import DPadButtons from "../../styles/dpad-buttons";
 import "./controller-layout.css";
 
 export default function ControllerLayoutComponent() {
@@ -9,7 +9,7 @@ export default function ControllerLayoutComponent() {
         <div className="controller-dpad-buttons-container">
           <DPadButtons></DPadButtons>
         </div>
-        <div className="controller-dpad-buttons-actions">
+        <div className="controller-action-buttons-container">
           <ActionButtons></ActionButtons>
         </div>
       </div>
