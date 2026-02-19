@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../styles/action-buttons.css"
+import "../../styles/action-buttons.css";
 
 type Action = "A" | "B" | "X" | "Y" | null;
 
@@ -17,7 +17,7 @@ export default function ActionButtons() {
           <button className="X" onClick={() => handlePress("X")}>
             X
           </button>
-        <button className="Y" onClick={() => handlePress("Y")}>
+          <button className="Y" onClick={() => handlePress("Y")}>
             Y
           </button>
           <button className="A" onClick={() => handlePress("A")}>
@@ -26,7 +26,6 @@ export default function ActionButtons() {
           <button className="B" onClick={() => handlePress("B")}>
             B
           </button>
-          
         </div>
       </div>
     </>

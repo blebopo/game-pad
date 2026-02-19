@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 import ControllerLayoutComponent from "./components/controller/controller-layout";
 import "./App.css";
 

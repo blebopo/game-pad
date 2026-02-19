@@ -1,10 +1,39 @@
-import { useState } from "react";
-import "../../styles/dpad-buttons.css"
+import { useEffect, useState } from "react";
+import "../../styles/dpad-buttons.css";
 
 type Direction = "up" | "down" | "left" | "right" | null;
 
 export default function DPadButtons() {
   const [lastPress, setLastPress] = useState<Direction>(null);
+
+  useEffect(() => {
+    const dPadKeyHandle = (event: KeyboardEvent) => {
+      let direction: Direction = null;
+      switch (event.key) {
+        case "w":
+        case "ArrowUp":
+          direction = "up";
+          break;
+        case "s":
+        case "ArrowDown":
+          direction = "down";
+          break;
+        case "a":
+        case "ArrowLeft":
+          direction = "left";
+          break;
+        case "d":
+        case "ArrowRight":
+          direction = "right";
+          break;
+      }
+      if(direction){
+        handlePress(direction);
+      }
+    };
+    window.addEventListener("keydown", dPadKeyHandle);
+    return () => window.removeEventListener("keydown", dPadKeyHandle);
+  }, []);
 
   function handlePress(direction: Direction) {
     setLastPress(direction);
@@ -14,7 +43,6 @@ export default function DPadButtons() {
     <>
       <div className="dpad-container">
         <div className="dpad">
-          
           <button className="left" onClick={() => handlePress("left")}>
             ←
           </button>

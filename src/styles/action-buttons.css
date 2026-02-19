@@ -8,11 +8,19 @@
 }
 
 /* Assign each button to a grid area */
-button.X { grid-area: X; }
-button.Y { grid-area: Y; }
-button.A { grid-area: A; }
-button.B { grid-area: B; }
+button.X {
+  grid-area: X;
+}
+button.Y {
+  grid-area: Y;
+}
+button.A {
+  grid-area: A;
+}
+button.B {
+  grid-area: B;
+}
 
 button {
-    margin: 0;
+  margin: 0;
 }
