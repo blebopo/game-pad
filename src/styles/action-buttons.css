@@ -1,0 +1,18 @@
+.action {
+  display: grid;
+  grid-template-areas:
+    ".  Y  ."
+    "X  .  A"
+    ".  B  .";
+  gap: 20px; /* space between buttons */
+}
+
+/* Assign each button to a grid area */
+button.X { grid-area: X; }
+button.Y { grid-area: Y; }
+button.A { grid-area: A; }
+button.B { grid-area: B; }
+
+button {
+    margin: 0;
+}

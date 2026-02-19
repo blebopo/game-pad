@@ -1,8 +1,9 @@
 import { useState } from "react";
+import "../../styles/action-buttons.css"
 
 type Action = "A" | "B" | "X" | "Y" | null;
 
-export default function DPadButtons() {
+export default function ActionButtons() {
   const [lastPress, setLastPress] = useState<Action>(null);
 
   function handlePress(action: Action) {
