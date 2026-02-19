@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./dpad-buttons.css"
+import "../../styles/dpad-buttons.css"
 
 type Direction = "up" | "down" | "left" | "right" | null;
 
