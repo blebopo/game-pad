@@ -27,7 +27,7 @@ export default function DPadButtons() {
           direction = "right";
           break;
       }
-      if(direction){
+      if (direction) {
         handlePress(direction);
       }
     };

@@ -7,29 +7,29 @@ export default function ActionButtons() {
   const [lastPress, setLastPress] = useState<Action>(null);
 
   useEffect(() => {
-      const actionKeyHandle = (event: KeyboardEvent) => {
-        let action: Action = null;
-        switch (event.key) {
-          case "i":
-            action = "Y";
-            break;
-          case "j":
-            action = "X";
-            break;
-          case "l":
-            action = "A";
-            break;
-          case "k":
-            action = "B";
-            break;
-        }
-        if(action){
-          handlePress(action);
-        }
-      };
-      window.addEventListener("keydown", actionKeyHandle);
-      return () => window.removeEventListener("keydown", actionKeyHandle);
-    }, []);
+    const actionKeyHandle = (event: KeyboardEvent) => {
+      let action: Action = null;
+      switch (event.key) {
+        case "i":
+          action = "Y";
+          break;
+        case "j":
+          action = "X";
+          break;
+        case "l":
+          action = "A";
+          break;
+        case "k":
+          action = "B";
+          break;
+      }
+      if (action) {
+        handlePress(action);
+      }
+    };
+    window.addEventListener("keydown", actionKeyHandle);
+    return () => window.removeEventListener("keydown", actionKeyHandle);
+  }, []);
 
   function handlePress(action: Action) {
     setLastPress(action);
