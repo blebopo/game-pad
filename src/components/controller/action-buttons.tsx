@@ -1,22 +1,30 @@
 import { useState } from "react";
 
-type Direction = "up" | "down" | "left" | "right" | null;
+type Action = "A" | "B" | "X" | "Y" | null;
 
 export default function DPadButtons() {
-  const [lastPress, setLastPress] = useState<Direction>(null);
+  const [lastPress, setLastPress] = useState<Action>(null);
 
-  function handlePress(direction: Direction) {
-    setLastPress(direction);
-    console.log(`Pressed: ${direction}`);
+  function handlePress(action: Action) {
+    setLastPress(action);
+    console.log(`Pressed: ${action}`);
   }
   return (
     <>
-      <div className="dpad-container">
-        <div className="dpad">
-          <button className="up" onClick={() => handlePress("up")}>A</button>
-          <button className="left" onClick={() => handlePress("left")}>B</button>
-          <button className="right" onClick={() => handlePress("left")}>X</button>
-          <button className="down" onClick={() => handlePress("left")}>Y</button>
+      <div className="action-container">
+        <div className="action">
+          <button className="A" onClick={() => handlePress("A")}>
+            A
+          </button>
+          <button className="B" onClick={() => handlePress("B")}>
+            B
+          </button>
+          <button className="X" onClick={() => handlePress("X")}>
+            X
+          </button>
+          <button className="Y" onClick={() => handlePress("Y")}>
+            Y
+          </button>
         </div>
       </div>
     </>
