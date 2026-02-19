@@ -1,8 +1,6 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import ControllerLayoutComponent from "./components/controller/controller-layout";
+import { useState } from "react"
+/*import feedback-layout from "./feedback/feedback-layout"*/
+import Gamepad from "./components/Gamepad"
 
 function App() {
   const [count, setCount] = useState(0);
