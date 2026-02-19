@@ -1,6 +1,6 @@
 import { useState } from "react"
-/*import feedback-layout from "./feedback/feedback-layout"*/
-import Gamepad from "./components/Gamepad"
+import ControllerLayoutComponent from "./components/controller/controller-layout";
+
 
 function App() {
   const [count, setCount] = useState(0);
