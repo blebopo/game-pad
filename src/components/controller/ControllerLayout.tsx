@@ -1,6 +1,6 @@
-import ActionButtons from "./action-buttons";
-import DPadButtons from "./dpad-buttons";
-import "../../styles/controller-layout.css";
+import ActionButtons from "./ActionButtons";
+import DPadButtons from "./DPadButtons";
+import "../../styles/ControllerLayout.css";
 
 export default function ControllerLayoutComponent() {
   return (

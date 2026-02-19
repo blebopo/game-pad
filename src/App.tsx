@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ControllerLayoutComponent from "./components/controller/controller-layout";
+import ControllerLayoutComponent from "./components/controller/ControllerLayout";
 import "./App.css";
 
 function App() {

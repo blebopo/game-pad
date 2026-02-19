@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../../styles/action-buttons.css";
+import "../../styles/ActionButtons.css";
 
 type Action = "A" | "B" | "X" | "Y" | null;
 
