@@ -1,0 +1,18 @@
+.dpad {
+  display: grid;
+  grid-template-areas:
+    ".  U  ."
+    "L  .  R"
+    ".  D  .";
+  gap: 20px; /* space between buttons */
+}
+
+/* Assign each button to a grid area */
+button.left { grid-area: L; }
+button.up { grid-area: U; }
+button.down { grid-area: D; }
+button.right { grid-area: R; }
+
+button {
+    margin: 0;
+}
