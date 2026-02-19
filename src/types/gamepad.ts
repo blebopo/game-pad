@@ -1,8 +1,19 @@
 export type ButtonName =
-  | "A" | "B" | "X" | "Y"
-  | "LT" | "RT" | "LB" | "RB"
-  | "UP" | "DOWN" | "LEFT" | "RIGHT"
-  | "START" | "SELECT" | "HOME"
+  | "A"
+  | "B"
+  | "X"
+  | "Y"
+  | "LT"
+  | "RT"
+  | "LB"
+  | "RB"
+  | "UP"
+  | "DOWN"
+  | "LEFT"
+  | "RIGHT"
+  | "START"
+  | "SELECT"
+  | "HOME"
   | null;
 
 export interface JoystickPosition {

@@ -2,16 +2,15 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 400px; 
-  margin: 0 auto; 
+  margin: 0 auto;
   padding: 20px;
-  background-color: #1e1e2f; 
+  background-color: #1e1e2f;
   border-radius: 12px;
   gap: 50px;
 }
 
 .controller-dpad-buttons-container,
-.controller-dpad-buttons-actions {
+.controller-action-buttons-container {
   display: flex;
   justify-content: center;
   align-items: center;
