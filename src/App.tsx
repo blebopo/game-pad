@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ControllerLayoutComponent from "./components/controller/ControllerLayout";
 import FeedbackLayoutComponent from "./components/feedback/FeedbackLayout";
 import type { ButtonName } from "./types/gamepad";
@@ -12,7 +12,12 @@ const GRID_SIZE = 19;
 function App() {
   const [activeButton, setActiveButton] = useState<ButtonName>(null);
   const [botPosition, setBotPosition] = useState<Position[]>( [{x: 5, y:5}]);
-   
+
+  // color cyclicing, just random colors 
+  const [colorIndex, setColorIndex] = useState(0);
+  const colors = ["limegreen", "cyan", "magenta", "yellow", "orange", "white", "#ff69b4"];
+   const currentBotColor = colors[colorIndex];
+
    useEffect(() => {
     if (!activeButton) return;
 
@@ -44,10 +49,21 @@ function App() {
 
     return () => clearInterval(interval);
   }, [activeButton]);
-
+// nEW : Color change on RB / LB press
+  useEffect(() => {
+    if (activeButton === "RB") {
+      setColorIndex((prev) => (prev + 1) % colors.length);
+    } else if (activeButton === "LB") {
+      setColorIndex((prev) => (prev - 1 + colors.length) % colors.length);
+    }
+  }, [activeButton]);
   return (
     <>
-      <div className="haptic-feedback-container">
+      <div 
+      className="haptic-feedback-container"
+      style={{"--bot-color": currentBotColor} as React.CSSProperties}
+      >
+
         <FeedbackLayoutComponent bot={botPosition} activeButton={activeButton} />
       </div>
       <div className="controller-container">
