@@ -1,11 +1,16 @@
-export default function FeedbackLayoutComponent() {
-  // Generate grid cells
+import type { Position } from "../../types/Position";
+import GridComponent from "./Grid";
 
-  // Generate grid programmatically
+interface FeedbackLayoutProps {
+    bot: Position[]
+}
+
+export default function FeedbackLayoutComponent( {bot} : FeedbackLayoutProps) {
+  const gridSize: number = 19;
 
   return (
     <>
-      <h1>Screen</h1>
+      <GridComponent gridSize={gridSize} bot={bot}/>
     </>
   );
 }
