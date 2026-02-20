@@ -7,7 +7,15 @@ import type { Position } from "./types/Position";
 
 const GRID_SIZE = 19;
 
-const colors = ["limegreen", "cyan", "magenta", "yellow", "orange", "white", "#ff69b4"];
+const colors = [
+  "limegreen",
+  "cyan",
+  "magenta",
+  "yellow",
+  "orange",
+  "white",
+  "#ff69b4",
+];
 
 function App() {
   const [activeButton, setActiveButton] = useState<ButtonName>(null);
@@ -24,6 +32,17 @@ function App() {
     if (!["UP", "DOWN", "LEFT", "RIGHT"].includes(activeButton)) return;
 
     setBotDirection(activeButton);
+    // Determines movement
+    // If you move up the new coordinate is the bots old cordinate -1 because of how the grid
+    // is constructed. Moving up means decreasing y. The same can be shown for the other movements
+    /* x →
+                  0    1    2    3    ...   18
+                --------------------------------
+          y=0 | (0,0)(1,0)(2,0)(3,0) ... (18,0)
+          y=1 | (0,1)(1,1)(2,1)(3,1) ... (18,1)
+          y=2 | (0,2)(1,2)(2,2)(3,2) ... (18,2)
+          ... |
+          y=18| (0,18)....................(18,18) */
 
     const interval = setInterval(() => {
       setBotPosition((prev) => {
@@ -31,10 +50,11 @@ function App() {
         let newX = head.x;
         let newY = head.y;
 
-        if (activeButton === "UP")    newY = Math.max(0, head.y - 1);
-        if (activeButton === "DOWN")  newY = Math.min(GRID_SIZE - 1, head.y + 1);
-        if (activeButton === "LEFT")  newX = Math.max(0, head.x - 1);
-        if (activeButton === "RIGHT") newX = Math.min(GRID_SIZE - 1, head.x + 1);
+        if (activeButton === "UP") newY = Math.max(0, head.y - 1);
+        if (activeButton === "DOWN") newY = Math.min(GRID_SIZE - 1, head.y + 1);
+        if (activeButton === "LEFT") newX = Math.max(0, head.x - 1);
+        if (activeButton === "RIGHT")
+          newX = Math.min(GRID_SIZE - 1, head.x + 1);
 
         return [{ x: newX, y: newY }];
       });
@@ -70,12 +90,13 @@ function App() {
         let newX = prev.x;
         let newY = prev.y;
 
-        if (botDirection === "UP")    newY = prev.y - 1;
-        if (botDirection === "DOWN")  newY = prev.y + 1;
-        if (botDirection === "LEFT")  newX = prev.x - 1;
+        if (botDirection === "UP") newY = prev.y - 1;
+        if (botDirection === "DOWN") newY = prev.y + 1;
+        if (botDirection === "LEFT") newX = prev.x - 1;
         if (botDirection === "RIGHT") newX = prev.x + 1;
 
-        if (newX < 0 || newX >= GRID_SIZE || newY < 0 || newY >= GRID_SIZE) return null;
+        if (newX < 0 || newX >= GRID_SIZE || newY < 0 || newY >= GRID_SIZE)
+          return null;
 
         return { x: newX, y: newY };
       });
@@ -91,7 +112,11 @@ function App() {
         className="haptic-feedback-container"
         style={{ "--bot-color": currentBotColor } as React.CSSProperties}
       >
-        <FeedbackLayoutComponent bot={botPosition} activeButton={activeButton} bullet={bullet} />
+        <FeedbackLayoutComponent
+          bot={botPosition}
+          activeButton={activeButton}
+          bullet={bullet}
+        />
       </div>
       <div className="controller-container">
         <ControllerLayoutComponent setActiveButton={setActiveButton} />

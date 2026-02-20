@@ -15,7 +15,7 @@
 }
 
 .bot {
-background-color: var(--bot-color, limegreen);
+  background-color: var(--bot-color, limegreen);
   background-color: limegreen;
   border-color: limegreen;
 }
