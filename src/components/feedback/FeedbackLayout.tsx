@@ -1,6 +1,7 @@
 import type { ButtonName } from "../../types/gamepad";
 import type { Position } from "../../types/Position";
 import GridComponent from "./Grid";
+import "../../styles/FeedbackLayout.css"
 
 interface FeedbackLayoutProps {
   bot: Position[];
@@ -12,7 +13,12 @@ export default function FeedbackLayoutComponent({ bot , activeButton }: Feedback
 
   return (
     <>
-      <GridComponent gridSize={gridSize} bot={bot} />
+      {/* Screen */}
+      <div className="feedback-screen">
+        <div className="feedback-scanlines">
+          <GridComponent gridSize={gridSize} bot={bot} />
+        </div>
+      </div>
     </>
   );
 }
