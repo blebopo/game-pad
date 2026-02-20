@@ -5,10 +5,11 @@ import "../../styles/FeedbackLayout.css"
 
 interface FeedbackLayoutProps {
   bot: Position[];
-  activeButton: ButtonName 
+  activeButton: ButtonName;
+  bullet: Position | null
 }
 
-export default function FeedbackLayoutComponent({ bot , activeButton }: FeedbackLayoutProps) {
+export default function FeedbackLayoutComponent({ bot , activeButton, bullet }: FeedbackLayoutProps) {
   const gridSize: number = 19;
 
   return (
@@ -16,7 +17,7 @@ export default function FeedbackLayoutComponent({ bot , activeButton }: Feedback
       {/* Screen */}
       <div className="feedback-screen">
         <div className="feedback-scanlines">
-          <GridComponent gridSize={gridSize} bot={bot} />
+          <GridComponent gridSize={gridSize} bot={bot} bullet={bullet} />
         </div>
       </div>
     </>

@@ -5,9 +5,10 @@ import "../../styles/Grid.css";
 interface GridProps {
   gridSize: number;
   bot: Position[];
+  bullet: Position | null;
 }
 
-export default function GridComponent({ gridSize, bot }: GridProps) {
+export default function GridComponent({ gridSize, bot, bullet}: GridProps) {
   const isBotCell = (row: number, col: number) => {
     return bot.some((segment) => segment.x === col && segment.y === row);
   };
