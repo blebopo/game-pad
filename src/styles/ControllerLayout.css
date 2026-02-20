@@ -1,11 +1,28 @@
 .controller-layout-component {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  background: #525274;
+  border-radius: 40px;
+  padding: 12px 20px 24px;
+  width: 520px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #1e1e2f;
-  gap: 50px;
+  gap: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+
+.controller-triggers-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+
+.controller-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
 }
 
 .controller-dpad-buttons-container,
@@ -13,4 +30,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.controller-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
