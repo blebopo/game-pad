@@ -8,9 +8,9 @@ interface GridProps {
   bullet: Position | null;
 }
 
-export default function GridComponent({ gridSize, bot, bullet}: GridProps) {
+export default function GridComponent({ gridSize, bot, bullet }: GridProps) {
   const head = bot[0];
-  
+
   // Checking if the segment is part of the bot
   const isBotCell = (row: number, col: number) => {
     return bot.some((segment) => segment.x === col && segment.y === row);
@@ -22,9 +22,14 @@ export default function GridComponent({ gridSize, bot, bullet}: GridProps) {
     return head !== undefined && head.x === col && head.y === row;
   };
 
-  const isBulletCell = (row: number, col: number): boolean =>{
-    return bullet !== null && bullet !== undefined && bullet.x === col && bullet.y === row;
-  }
+  const isBulletCell = (row: number, col: number): boolean => {
+    return (
+      bullet !== null &&
+      bullet !== undefined &&
+      bullet.x === col &&
+      bullet.y === row
+    );
+  };
   const grid = [];
 
   for (let row = 0; row < gridSize; row++) {

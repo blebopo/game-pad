@@ -8,10 +8,11 @@ interface ControllerLayoutProps {
   setActiveButton: (btn: ButtonName) => void;
 }
 
-export default function ControllerLayoutComponent({ setActiveButton }: ControllerLayoutProps) {
+export default function ControllerLayoutComponent({
+  setActiveButton,
+}: ControllerLayoutProps) {
   return (
     <div className="controller-layout-component">
-
       <div className="controller-triggers-row">
         <TriggerButtons setActiveButton={setActiveButton} />
       </div>
@@ -27,7 +28,6 @@ export default function ControllerLayoutComponent({ setActiveButton }: Controlle
           <ActionButtons setActiveButton={setActiveButton} />
         </div>
       </div>
-
     </div>
   );
 }

@@ -1,15 +1,19 @@
 import type { ButtonName } from "../../types/gamepad";
 import type { Position } from "../../types/Position";
 import GridComponent from "./Grid";
-import "../../styles/FeedbackLayout.css"
+import "../../styles/FeedbackLayout.css";
 
 interface FeedbackLayoutProps {
   bot: Position[];
   activeButton: ButtonName;
-  bullet: Position | null
+  bullet: Position | null;
 }
 
-export default function FeedbackLayoutComponent({ bot , activeButton, bullet }: FeedbackLayoutProps) {
+export default function FeedbackLayoutComponent({
+  bot,
+  activeButton,
+  bullet,
+}: FeedbackLayoutProps) {
   const gridSize: number = 19;
 
   return (
