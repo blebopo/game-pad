@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import type { ButtonName } from "../../types/gamepad";
-import "../../styles/action-buttons.css";
+import "../../styles/ActionButton.css";
 
 interface ActionButtonsProps {
   setActiveButton: (btn: ButtonName) => void;

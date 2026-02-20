@@ -1,6 +1,6 @@
 import { useState } from "react";
-import ControllerLayoutComponent from "./components/controller/controller-layout";
-import FeedbackLayoutComponent from "./components/feedback/feedback-layout";
+import ControllerLayoutComponent from "./components/controller/ControllerLayout";
+import FeedbackLayoutComponent from "./components/feedback/FeedbackLayout";
 import type { ButtonName } from "./types/gamepad";
 import "./App.css";
 
