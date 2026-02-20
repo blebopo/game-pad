@@ -7,10 +7,30 @@
   gap: 6px;
 }
 
-button.X { grid-area: X; background: #1a1a2e; border: 2px solid #4488ff; color: #4488ff; }
-button.Y { grid-area: Y; background: #1a1a2e; border: 2px solid #ffcc00; color: #ffcc00; }
-button.A { grid-area: A; background: #1a1a2e; border: 2px solid #00ff88; color: #00ff88; }
-button.B { grid-area: B; background: #1a1a2e; border: 2px solid #ff4444; color: #ff4444; }
+button.X {
+  grid-area: X;
+  background: #1a1a2e;
+  border: 2px solid #4488ff;
+  color: #4488ff;
+}
+button.Y {
+  grid-area: Y;
+  background: #1a1a2e;
+  border: 2px solid #ffcc00;
+  color: #ffcc00;
+}
+button.A {
+  grid-area: A;
+  background: #1a1a2e;
+  border: 2px solid #00ff88;
+  color: #00ff88;
+}
+button.B {
+  grid-area: B;
+  background: #1a1a2e;
+  border: 2px solid #ff4444;
+  color: #ff4444;
+}
 
 .action button {
   width: 42px;
@@ -19,7 +39,9 @@ button.B { grid-area: B; background: #1a1a2e; border: 2px solid #ff4444; color: 
   font-weight: bold;
   font-size: 14px;
   cursor: pointer;
-  transition: transform 0.1s, box-shadow 0.1s;
+  transition:
+    transform 0.1s,
+    box-shadow 0.1s;
 }
 
 .action button:active {

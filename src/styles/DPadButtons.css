@@ -7,10 +7,22 @@
   gap: 3px;
 }
 
-button.up    { grid-area: U; border-radius: 4px 4px 0 0; }
-button.down  { grid-area: D; border-radius: 0 0 4px 4px; }
-button.left  { grid-area: L; border-radius: 4px 0 0 4px; }
-button.right { grid-area: R; border-radius: 0 4px 4px 0; }
+button.up {
+  grid-area: U;
+  border-radius: 4px 4px 0 0;
+}
+button.down {
+  grid-area: D;
+  border-radius: 0 0 4px 4px;
+}
+button.left {
+  grid-area: L;
+  border-radius: 4px 0 0 4px;
+}
+button.right {
+  grid-area: R;
+  border-radius: 0 4px 4px 0;
+}
 
 .dpad button {
   width: 38px;

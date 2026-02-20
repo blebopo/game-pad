@@ -16,4 +16,10 @@
 
 .bot {
 background-color: var(--bot-color, limegreen);
+  background-color: limegreen;
+  border-color: limegreen;
+}
+
+.bullet {
+  background: #ffee06;
 }

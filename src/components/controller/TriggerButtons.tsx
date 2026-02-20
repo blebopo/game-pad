@@ -1,8 +1,8 @@
 import type { ButtonName } from "../../types/gamepad";
-import "../../styles/TriggerButton.css"
+import "../../styles/TriggerButton.css";
 
-interface TriggerButtonsProps{
-    setActiveButton:(button:ButtonName) => void;
+interface TriggerButtonsProps {
+  setActiveButton: (button: ButtonName) => void;
 }
 
 const leftTriggers = [
@@ -15,8 +15,10 @@ const rightTriggers = [
   { label: "RB", value: "RB" as ButtonName, className: "trigger-btn-bottom" },
 ];
 
-export default function TriggerButtons({setActiveButton}: TriggerButtonsProps){
-     return (
+export default function TriggerButtons({
+  setActiveButton,
+}: TriggerButtonsProps) {
+  return (
     <div className="triggers">
       <div className="triggers-left">
         {leftTriggers.map(({ label, value }) => (
@@ -48,6 +50,3 @@ export default function TriggerButtons({setActiveButton}: TriggerButtonsProps){
     </div>
   );
 }
-
-
-
