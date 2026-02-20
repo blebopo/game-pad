@@ -6,15 +6,9 @@ interface CellProps {
   isBullet: boolean;
 }
 
-export default function GridCellComponent({
-  isBot,
-  isHead,
-  isBullet,
-}: CellProps) {
-  let className = "cell";
-  if (isBullet) className = "cell bullet";
-  else if (isHead) className = "bot-head";
-  else if (isBot) className = "cell bot";
-
-  return <div className={className} />;
+export default function GridCellComponent({ isBot , isHead, isBullet}: CellProps) {
+    let typeOfCell= "";
+    if (isBullet) typeOfCell = "bullet";
+    else if(isBot) typeOfCell="bot";
+    return <div className={`cell ${typeOfCell}`} />;
 }
