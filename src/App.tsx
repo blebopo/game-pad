@@ -40,7 +40,7 @@ function App() {
 
         return [{ x: newX, y: newY }];
       });
-    }, 100);
+    }, 60);
 
     return () => clearInterval(interval);
   }, [activeButton]);
