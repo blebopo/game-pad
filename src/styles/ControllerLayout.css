@@ -7,16 +7,14 @@
   width: 520px;
   margin: 0 auto;
   gap: 12px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
-
 
 .controller-triggers-row {
   display: flex;
   justify-content: space-between;
   padding: 0 8px;
 }
-
 
 .controller-body {
   display: flex;

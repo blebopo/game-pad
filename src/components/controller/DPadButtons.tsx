@@ -40,10 +40,38 @@ export default function DPadButtons({ setActiveButton }: DPadButtonsProps) {
   return (
     <div className="dpad-container">
       <div className="dpad">
-        <button className="up" onMouseDown={() => setActiveButton("UP")} onMouseUp={() => setActiveButton(null)} onMouseLeave={() => setActiveButton(null)}>↑</button>
-        <button className="left" onMouseDown={() => setActiveButton("LEFT")} onMouseUp={() => setActiveButton(null)} onMouseLeave={() => setActiveButton(null)}>←</button>
-        <button className="right" onMouseDown={() => setActiveButton("RIGHT")} onMouseUp={() => setActiveButton(null)} onMouseLeave={() => setActiveButton(null)}>→</button>
-        <button className="down" onMouseDown={() => setActiveButton("DOWN")} onMouseUp={() => setActiveButton(null)} onMouseLeave={() => setActiveButton(null)}>↓</button>
+        <button
+          className="up"
+          onMouseDown={() => setActiveButton("UP")}
+          onMouseUp={() => setActiveButton(null)}
+          onMouseLeave={() => setActiveButton(null)}
+        >
+          ↑
+        </button>
+        <button
+          className="left"
+          onMouseDown={() => setActiveButton("LEFT")}
+          onMouseUp={() => setActiveButton(null)}
+          onMouseLeave={() => setActiveButton(null)}
+        >
+          ←
+        </button>
+        <button
+          className="right"
+          onMouseDown={() => setActiveButton("RIGHT")}
+          onMouseUp={() => setActiveButton(null)}
+          onMouseLeave={() => setActiveButton(null)}
+        >
+          →
+        </button>
+        <button
+          className="down"
+          onMouseDown={() => setActiveButton("DOWN")}
+          onMouseUp={() => setActiveButton(null)}
+          onMouseLeave={() => setActiveButton(null)}
+        >
+          ↓
+        </button>
       </div>
     </div>
   );
