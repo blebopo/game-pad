@@ -1,62 +1,50 @@
 import { useEffect, useState } from "react";
+import type { ButtonName } from "../../types/gamepad";
 import "../../styles/DPadButtons.css";
 
-type Direction = "up" | "down" | "left" | "right" | null;
+interface DPadButtonsProps {
+  setActiveButton: (btn: ButtonName) => void;
+}
 
-export default function DPadButtons() {
-  const [lastPress, setLastPress] = useState<Direction>(null);
+type Direction = "UP" | "DOWN" | "LEFT" | "RIGHT" | null;
 
+const keyMap: Record<string, Direction> = {
+  w: "UP",
+  ArrowUp: "UP",
+  s: "DOWN",
+  ArrowDown: "DOWN",
+  a: "LEFT",
+  ArrowLeft: "LEFT",
+  d: "RIGHT",
+  ArrowRight: "RIGHT",
+};
+
+export default function DPadButtons({ setActiveButton }: DPadButtonsProps) {
   useEffect(() => {
-    const dPadKeyHandle = (event: KeyboardEvent) => {
-      let direction: Direction = null;
-      switch (event.key) {
-        case "w":
-        case "ArrowUp":
-          direction = "up";
-          break;
-        case "s":
-        case "ArrowDown":
-          direction = "down";
-          break;
-        case "a":
-        case "ArrowLeft":
-          direction = "left";
-          break;
-        case "d":
-        case "ArrowRight":
-          direction = "right";
-          break;
-      }
-      if(direction){
-        handlePress(direction);
-      }
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const direction = keyMap[e.key];
+      if (direction) setActiveButton(direction);
     };
-    window.addEventListener("keydown", dPadKeyHandle);
-    return () => window.removeEventListener("keydown", dPadKeyHandle);
-  }, []);
+    const handleKeyUp = (e: KeyboardEvent) => {
+      if (keyMap[e.key]) setActiveButton(null);
+    };
 
-  function handlePress(direction: Direction) {
-    setLastPress(direction);
-    console.log(`Pressed: ${direction}`);
-  }
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
+    };
+  }, [setActiveButton]);
+
   return (
-    <>
-      <div className="dpad-container">
-        <div className="dpad">
-          <button className="left" onClick={() => handlePress("left")}>
-            ←
-          </button>
-          <button className="up" onClick={() => handlePress("up")}>
-            ↑
-          </button>
-          <button className="right" onClick={() => handlePress("left")}>
-            →
-          </button>
-          <button className="down" onClick={() => handlePress("left")}>
-            ↓
-          </button>
-        </div>
+    <div className="dpad-container">
+      <div className="dpad">
+        <button className="up" onMouseDown={() => setActiveButton("UP")} onMouseUp={() => setActiveButton(null)} onMouseLeave={() => setActiveButton(null)}>↑</button>
+        <button className="left" onMouseDown={() => setActiveButton("LEFT")} onMouseUp={() => setActiveButton(null)} onMouseLeave={() => setActiveButton(null)}>←</button>
+        <button className="right" onMouseDown={() => setActiveButton("RIGHT")} onMouseUp={() => setActiveButton(null)} onMouseLeave={() => setActiveButton(null)}>→</button>
+        <button className="down" onMouseDown={() => setActiveButton("DOWN")} onMouseUp={() => setActiveButton(null)} onMouseLeave={() => setActiveButton(null)}>↓</button>
       </div>
-    </>
+    </div>
   );
 }

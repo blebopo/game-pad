@@ -1,58 +1,58 @@
-import { useEffect, useState } from "react";
-import "../../styles/ActionButtons.css";
+import { useEffect } from "react";
+import type { ButtonName } from "../../types/gamepad";
+import "../../styles/ActionButton.css";
 
-type Action = "A" | "B" | "X" | "Y" | null;
+interface ActionButtonsProps {
+  setActiveButton: (btn: ButtonName) => void;
+}
 
-export default function ActionButtons() {
-  const [lastPress, setLastPress] = useState<Action>(null);
+const actions: { label: string; value: ButtonName }[] = [
+  { label: "X", value: "X" },
+  { label: "Y", value: "Y" },
+  { label: "A", value: "A" },
+  { label: "B", value: "B" },
+];
 
+const keyMap: Record<string, ButtonName> = {
+  i: "Y",
+  j: "X",
+  l: "A",
+  k: "B",
+};
+
+export default function ActionButtons({ setActiveButton }: ActionButtonsProps) {
   useEffect(() => {
-      const actionKeyHandle = (event: KeyboardEvent) => {
-        let action: Action = null;
-        switch (event.key) {
-          case "i":
-            action = "Y";
-            break;
-          case "j":
-            action = "X";
-            break;
-          case "l":
-            action = "A";
-            break;
-          case "k":
-            action = "B";
-            break;
-        }
-        if(action){
-          handlePress(action);
-        }
-      };
-      window.addEventListener("keydown", actionKeyHandle);
-      return () => window.removeEventListener("keydown", actionKeyHandle);
-    }, []);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const action = keyMap[e.key];
+      if (action) setActiveButton(action);
+    };
+    const handleKeyUp = (e: KeyboardEvent) => {
+      if (keyMap[e.key]) setActiveButton(null);
+    };
 
-  function handlePress(action: Action) {
-    setLastPress(action);
-    console.log(`Pressed: ${action}`);
-  }
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
+    };
+  }, [setActiveButton]);
+
   return (
-    <>
-      <div className="action-container">
-        <div className="action">
-          <button className="X" onClick={() => handlePress("X")}>
-            X
+    <div className="action-container">
+      <div className="action">
+        {actions.map(({ label, value }) => (
+          <button
+            key={value}
+            className={`action-btn ${label}`}
+            onMouseDown={() => setActiveButton(value)}
+            onMouseUp={() => setActiveButton(null)}
+            onMouseLeave={() => setActiveButton(null)}
+          >
+            {label}
           </button>
-          <button className="Y" onClick={() => handlePress("Y")}>
-            Y
-          </button>
-          <button className="A" onClick={() => handlePress("A")}>
-            A
-          </button>
-          <button className="B" onClick={() => handlePress("B")}>
-            B
-          </button>
-        </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 }

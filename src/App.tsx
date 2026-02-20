@@ -1,15 +1,19 @@
 import { useState } from "react";
 import ControllerLayoutComponent from "./components/controller/ControllerLayout";
+import FeedbackLayoutComponent from "./components/feedback/FeedbackLayout";
+import type { ButtonName } from "./types/gamepad";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [activeButton, setActiveButton] = useState<ButtonName>(null);
 
   return (
     <>
-      <div className="haptic-feedback-container"></div>
+      <div className="haptic-feedback-container">
+        <FeedbackLayoutComponent activeButton={activeButton} />
+      </div>
       <div className="controller-container">
-        <ControllerLayoutComponent></ControllerLayoutComponent>
+        <ControllerLayoutComponent setActiveButton={setActiveButton} />
       </div>
     </>
   );
