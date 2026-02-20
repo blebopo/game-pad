@@ -5,8 +5,5 @@ interface CellProps {
 }
 
 export default function GridCellComponent({ isBot }: CellProps) {
-
-  return (
-    <div className={`cell ${isBot ? "bot" : ""}`} />
-  );
+  return <div className={`cell ${isBot ? "bot" : ""}`} />;
 }

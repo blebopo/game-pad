@@ -5,17 +5,17 @@ import FeedbackLayoutComponent from "./components/feedback/FeedbackLayout";
 import type { Position } from "./types/Position";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  const bot : Position[] = [{
-    x : 5,
-    y: 5
-  }]
+  const [botPositon, setBotPosition] = useState([
+    {
+      x: 5,
+      y: 5,
+    },
+  ]);
 
   return (
     <>
       <div className="haptic-feedback-container">
-        <FeedbackLayoutComponent bot={bot}></FeedbackLayoutComponent>
+        <FeedbackLayoutComponent bot={botPositon}></FeedbackLayoutComponent>
       </div>
       <div className="controller-container">
         <ControllerLayoutComponent></ControllerLayoutComponent>

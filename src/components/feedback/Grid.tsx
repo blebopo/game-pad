@@ -1,6 +1,6 @@
 import type { Position } from "../../types/Position";
 import GridCellComponent from "./GridCell";
-import "../../styles/Grid.css"
+import "../../styles/Grid.css";
 
 interface GridProps {
   gridSize: number;
@@ -19,12 +19,10 @@ export default function GridComponent({ gridSize, bot }: GridProps) {
 
     for (let column = 0; column < gridSize; column++) {
       currentRow.push(
-        
-          <GridCellComponent
-            key={`${row}-${column}`}
-            isBot={isBotCell(row, column)}
-          ></GridCellComponent>
-        
+        <GridCellComponent
+          key={`${row}-${column}`}
+          isBot={isBotCell(row, column)}
+        ></GridCellComponent>,
       );
     }
 
@@ -33,10 +31,7 @@ export default function GridComponent({ gridSize, bot }: GridProps) {
         {currentRow}
       </div>,
     );
-
   }
 
-    return (
-        <div className="board">{grid}</div>
-    );
+  return <div className="grid">{grid}</div>;
 }
