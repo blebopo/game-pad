@@ -9,10 +9,22 @@ interface GridProps {
 }
 
 export default function GridComponent({ gridSize, bot, bullet}: GridProps) {
+  const head = bot[0];
+  
+  // Checking if the segment is part of the bot
   const isBotCell = (row: number, col: number) => {
     return bot.some((segment) => segment.x === col && segment.y === row);
   };
 
+  // Checking if it is the beginning of a segment, in the case that
+  // we want to increase the length of the bot
+  const isHeadCell = (row: number, col: number): boolean => {
+    return head !== undefined && head.x === col && head.y === row;
+  };
+
+  const isBulletCell = (row: number, col: number): boolean =>{
+    return bullet !== null && bullet !== undefined && bullet.x === col && bullet.y === row;
+  }
   const grid = [];
 
   for (let row = 0; row < gridSize; row++) {
@@ -23,6 +35,8 @@ export default function GridComponent({ gridSize, bot, bullet}: GridProps) {
         <GridCellComponent
           key={`${row}-${column}`}
           isBot={isBotCell(row, column)}
+          isHead={isHeadCell(row, column)}
+          isBullet={isBulletCell(row, column)}
         ></GridCellComponent>,
       );
     }
