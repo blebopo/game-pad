@@ -1,14 +1,18 @@
 import type { ButtonName } from "../../types/gamepad";
+import type { Position } from "../../types/Position";
+import GridComponent from "./Grid";
 
 interface FeedbackLayoutProps {
-  activeButton: ButtonName;
+  bot: Position[];
+  activeButton: ButtonName 
 }
 
-export default function FeedbackLayoutComponent({ activeButton }: FeedbackLayoutProps) {
+export default function FeedbackLayoutComponent({ bot , activeButton }: FeedbackLayoutProps) {
+  const gridSize: number = 19;
+
   return (
     <>
-      <h1>Screen</h1>
-      <p>{activeButton ?? "Nothing pressed"}</p>
+      <GridComponent gridSize={gridSize} bot={bot} />
     </>
   );
 }
